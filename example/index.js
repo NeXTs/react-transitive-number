@@ -3,7 +3,7 @@ var render = require('react-dom').render;
 var moment = require('moment');
 var createReactClass = require('create-react-class');
 
-var D = React.DOM;
+var D = React.createElement;
 
 var TransitiveNumber = require('..');
 var transitiveNumber = React.createFactory(TransitiveNumber);
@@ -37,57 +37,57 @@ var App = createReactClass({
         });
     },
     render: function() {
-        return D.div(
+        return D('div',
             null,
-            D.div(
+            D('div',
                 { className: 'comparison' },
-                D.div(
+                D('div',
                     { className: 'comparison__cell comparison__cell_head' },
                     'Plain HTML'
                 ),
-                D.div(
+                D('div',
                     { className: 'comparison__cell comparison__cell_head' },
                     'With ',
-                    D.code(null, 'TransitiveNumber')
+                    D('code', null, 'TransitiveNumber')
                 ),
-                D.div(
+                D('div',
                     { className: 'comparison__cell comparison__cell_first' },
-                    D.div(
+                    D('div',
                         { className: 'timer' },
-                        D.span({ className: 'timer__dot' }),
-                        D.span(
+                        D('span', { className: 'timer__dot' }),
+                        D('span',
                             null,
                             moment(this.state.time * 1000).format('HH:mm:ss')
                         )
                     )
                 ),
-                D.div(
+                D('div',
                     { className: 'comparison__cell' },
-                    D.div(
+                    D('div',
                         { className: 'timer' },
-                        D.span({ className: 'timer__dot' }),
+                        D('span', { className: 'timer__dot' }),
                         transitiveNumber(
                             null,
                             moment(this.state.time * 1000).format('HH:mm:ss')
                         )
                     )
                 ),
-                D.div(
+                D('div',
                     { className: 'comparison__cell comparison__cell_first' },
-                    D.div(
+                    D('div',
                         { className: 'counter' },
-                        D.button(
+                        D('button',
                             {
                                 className: 'counter__button counter__button_down',
                                 type: 'button',
                                 onClick: this.decrementCount
                             }
                         ),
-                        D.span(
+                        D('span',
                             null,
                             this.state.count + ' points'
                         ),
-                        D.button(
+                        D('button',
                             {
                                 className: 'counter__button counter__button_up',
                                 type: 'button',
@@ -96,11 +96,11 @@ var App = createReactClass({
                         )
                     )
                 ),
-                D.div(
+                D('div',
                     { className: 'comparison__cell' },
-                    D.div(
+                    D('div',
                         { className: 'counter' },
-                        D.button(
+                        D('button',
                             {
                                 className: 'counter__button counter__button_down',
                                 type: 'button',
@@ -112,7 +112,7 @@ var App = createReactClass({
                             this.state.count
                         ),
                         ' points',
-                        D.button(
+                        D('button',
                             {
                                 className: 'counter__button counter__button_up',
                                 type: 'button',

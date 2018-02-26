@@ -1,5 +1,5 @@
 var React = require('react');
-var D = React.DOM;
+var D = React.createElement;
 var findDOMNode = require('react-dom').findDOMNode
 var createReactClass = require('create-react-class');
 
@@ -69,7 +69,7 @@ var Transition = createReactClass({
         return this.props.out || !this.state.in;
     },
     render: function() {
-        return D.span(
+        return D('span',
             {
                 style: this.getAppearance()
             },
